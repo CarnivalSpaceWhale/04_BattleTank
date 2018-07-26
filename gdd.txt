@@ -1,0 +1,29 @@
+concept
+
+	a competitive 1v1 3D tank battle game where each player controls a tank with a movable turret. players must aim the turret with the mouse to fire explosive projectiles at the enemy tank. the play area consists of an arena of green hilly terrain bounded by impassable black mountains. the game ends when a player's health is depleted by damaging attacks.
+
+rules
+
+	1 player-controlled tank vs. 1 AI-controlled tank
+	neither tank can leave the play area
+	tanks spawn in one of 4 spawn points at the corners of the map
+	at game start, both tanks spawn in opposite corners
+	tanks have 100 health
+	a direct hit by an explosive projectile deals 30 damage
+	indirect hits by explosions deal less damage based on distance
+	when destroyed, tanks respawn at the furthest spawn point from their opponent
+	match continues to a best of 5
+	a brief stats screen appears after the match
+	postgame stats: projectile accuracy percentage, damage taken, damage dealt.
+	game returns to start menu after ending.
+
+requirements
+	
+	models: tank + movable turret, projectile
+	map: play area terrain, non-play area terrain
+	texture: terrain grass
+	particles: explosion, smoke (critical health)
+	sounds: rolling tank tracks, turret firing, turret reload, explosion
+	music: menu music, battle music
+	start menu: splash art, buttons
+	UI: health bars, turret cooldown, critical health pulse
