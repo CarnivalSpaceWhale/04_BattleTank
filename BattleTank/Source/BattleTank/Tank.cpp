@@ -16,6 +16,7 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//TankAimComp = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
 }
 
 // Called every frame
@@ -32,3 +33,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void ATank::AimAt(FVector AimPointLocation)
+{
+	UE_LOG(LogTemp, Warning, TEXT("TankID: %s  AimingAt: %s"), *this->GetName(), *AimPointLocation.ToString());
+}
