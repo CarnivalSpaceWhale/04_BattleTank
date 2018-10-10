@@ -1,5 +1,6 @@
 // CarnivalSpaceWhale Very Definitely Original Code Do Not Steal
 
+#include "GameFramework/Actor.h"
 #include "TankAimingComponent.h"
 
 
@@ -25,3 +26,7 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 }
 
+void UTankAimingComponent::AimAt(FVector AimPoint)
+{
+	UE_LOG(LogTemp, Warning, TEXT("TankID: %s  AimingAt: %s"), *(GetOwner()->GetName()), *AimPoint.ToString());
+}
