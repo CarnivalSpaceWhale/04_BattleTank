@@ -59,8 +59,5 @@ bool ATankPlayerController::GetCrosshairTraceHit(FString &ObjectHit, FVector &Hi
 		ObjectHit = HitResult.GetActor()->GetName();
 	}
 
-	// Draws a red line for debugging purposes
-	DrawDebugLine(GetWorld(), HitResult.TraceStart, HitResult.TraceEnd, FColor::Red);
-
 	return bHit;
 }
