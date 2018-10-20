@@ -1,7 +1,7 @@
 // CarnivalSpaceWhale Very Definitely Original Code Do Not Steal
 
 #include "Tank.h"
-
+#include "TankAimingComponent.h"
 
 // Sets default values
 ATank::ATank()
@@ -12,7 +12,7 @@ ATank::ATank()
 	TankAimComp = CreateDefaultSubobject<UTankAimingComponent>(TEXT("AimingComponent"));
 }
 
-void ATank::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimComp->SetBarrelReference(BarrelToSet);
 }
