@@ -37,7 +37,7 @@ protected:
 public:	
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000; // TODO find good default
+	float LaunchSpeed = 4000.0;
 
 	void AimAt(FVector AimPointLocation);
 };
