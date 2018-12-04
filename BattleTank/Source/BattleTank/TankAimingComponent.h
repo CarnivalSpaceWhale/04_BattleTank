@@ -8,6 +8,7 @@
 
 //fwd declaration
 class UTankBarrel; 
+class UTankTurret;
 
 /**
  * Holds Tank Barrel's properties and Elevate method.
@@ -23,12 +24,13 @@ public:
 
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
-	//TODO Add Set Turret Reference
+	void SetTurretReference(UTankTurret* TurretToSet);
 
 	void AimAt(FVector AimPoint, float LaunchSpeed);
 
 private:
 	UTankBarrel* Barrel = nullptr;
+	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
 };

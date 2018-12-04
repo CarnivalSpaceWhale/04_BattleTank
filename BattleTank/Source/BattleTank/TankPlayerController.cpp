@@ -30,17 +30,6 @@ ATank* ATankPlayerController::GetControlledTank() const
 	return Cast<ATank>(GetPawn());
 }
 
-void ATankPlayerController::AimAtCrosshair()
-{
-	if (!GetControlledTank()) { return; }
-
-	AimPointLocation = FVector(0);
-	FString ObjectHit = "Nothing";
-
-	GetCrosshairTraceHit(ObjectHit, AimPointLocation);
-	GetControlledTank()->AimAt(AimPointLocation);
-}
-
 bool ATankPlayerController::GetCrosshairTraceHit(FString &ObjectHit, FVector &HitLoc) const
 {
 	// Viewport Size
@@ -60,4 +49,15 @@ bool ATankPlayerController::GetCrosshairTraceHit(FString &ObjectHit, FVector &Hi
 	}
 
 	return bHit;
+}
+
+void ATankPlayerController::AimAtCrosshair()
+{
+	if (!GetControlledTank()) { return; }
+
+	AimPointLocation = FVector(0);
+	FString ObjectHit = "Nothing";
+
+	GetCrosshairTraceHit(ObjectHit, AimPointLocation);
+	GetControlledTank()->AimAt(AimPointLocation);
 }

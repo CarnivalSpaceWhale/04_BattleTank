@@ -9,21 +9,22 @@
 /**
  * Holds Tank Barrel's properties and Elevate method.
  */
-UCLASS(meta = (BlueprintSpawnableComponent), hidecategories = ("Collision"))
+UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 	
 public:
-	void Elevate(float DegreesPerSecond);	
+	// -1 is max downward speed, +1 is max upward speed
+	void Elevate(float RelativeSpeed);	
 	
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxDegreesPerSecond = 20; 
+	float MaxDegreesPerSecond = 5.f; 
 
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxDegreesElevation = 60;
+	float MaxDegreesElevation = 40.f;
 
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MinDegreesElevation = -10;
+	float MinDegreesElevation = 0.f;
 };
