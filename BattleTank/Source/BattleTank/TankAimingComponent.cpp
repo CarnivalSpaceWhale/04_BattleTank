@@ -52,8 +52,8 @@ void UTankAimingComponent::AimAt(FVector AimPoint, float LaunchSpeed)
 	}
 	else
 	{
-		auto time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: No Aim Solution Found"), time)
+		//auto time = GetWorld()->GetTimeSeconds();
+		//UE_LOG(LogTemp, Warning, TEXT("%f: No Aim Solution Found"), time)
 	}
 }
 
