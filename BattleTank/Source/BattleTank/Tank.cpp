@@ -48,12 +48,10 @@ void ATank::Fire()
 {
 	if (!Barrel) { return; }
 	// spawn a projectile at the EndOfBarrel socket on Barrel
-	GetWorld()->SpawnActor<AProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("EndOfBarrel")),
 		Barrel->GetSocketRotation(FName("EndOfBarrel")));
 
-	auto time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Fire Event"), time)
-
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
