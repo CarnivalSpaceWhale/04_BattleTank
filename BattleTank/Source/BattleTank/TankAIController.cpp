@@ -4,30 +4,14 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 
-void ATankAIController::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	AimAtPlayer();
-}
 
-ATank* ATankAIController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
+	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (!PlayerTank) { return; }
+	auto ControlledTank = Cast<ATank>(GetPawn());
 
-ATank* ATankAIController::GetPlayerTank() const
-{
-	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerTank) { return nullptr; }
-	return Cast<ATank>(PlayerTank);
-}
-
-void ATankAIController::AimAtPlayer()
-{
-	GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+	ControlledTank->AimAt(PlayerTank->GetActorLocation());
+	ControlledTank->Fire();
 }

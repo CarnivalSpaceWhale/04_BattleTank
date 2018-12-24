@@ -40,16 +40,20 @@ public:
 
 	void AimAt(FVector AimPointLocation);
 
-	UFUNCTION(BlueprintCallable, Category = Gameplay)
-	void Fire();
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000.0;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlueprint;
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3.f;
+
+	UFUNCTION(BlueprintCallable, Category = Gameplay)
+	void Fire();
 
 	// local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;
 
+	float LastFireTime = 0;
 };
