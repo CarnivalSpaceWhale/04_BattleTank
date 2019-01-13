@@ -19,4 +19,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetThrottle(float Throttle);
 	
+	// max force per track in newtons
+	UPROPERTY(EditDefaultsOnly)
+	float MaxTrackForce = 400000; //assume tank is 40,000kg
 };
